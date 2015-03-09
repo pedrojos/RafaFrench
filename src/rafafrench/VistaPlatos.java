@@ -69,14 +69,10 @@ public class VistaPlatos extends javax.swing.JFrame {
         lblnombre = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         txtcodigo = new javax.swing.JTextField();
-<<<<<<< HEAD
         btnLimpiar = new javax.swing.JButton();
         txtestado = new javax.swing.JTextField();
         lblcodigo1 = new javax.swing.JLabel();
-=======
         btnNuevo = new javax.swing.JButton();
-        btnLimpiar1 = new javax.swing.JButton();
->>>>>>> 5ff657bc82be75357b79bdf88f45c9bbac115c50
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,19 +114,18 @@ public class VistaPlatos extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 100, 30));
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, 30));
 
         btnCosultar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCosultar.setForeground(new java.awt.Color(0, 153, 255));
         btnCosultar.setText("CONSULTAR");
         btnCosultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-<<<<<<< HEAD
         btnCosultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCosultarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCosultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 100, 30));
+        jPanel2.add(btnCosultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 100, 30));
 
         btnEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnEstado.setForeground(new java.awt.Color(0, 153, 255));
@@ -141,16 +136,7 @@ public class VistaPlatos extends javax.swing.JFrame {
                 btnEstadoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 110, 30));
-=======
-        jPanel2.add(btnCosultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
-
-        btnInhabilitar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInhabilitar.setForeground(new java.awt.Color(0, 153, 255));
-        btnInhabilitar.setText("INHABILITAR");
-        btnInhabilitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnInhabilitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, 30));
->>>>>>> 5ff657bc82be75357b79bdf88f45c9bbac115c50
+        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 110, 30));
 
         lblestado.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblestado.setText("ESTADO");
@@ -207,17 +193,16 @@ public class VistaPlatos extends javax.swing.JFrame {
         });
         jPanel2.add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 170, -1));
 
-        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(0, 153, 255));
-        btnNuevo.setText("NUEVO");
-        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(0, 153, 255));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
-        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, 30));
+        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, 30));
 
         txtestado.setEditable(false);
         txtestado.setBackground(new java.awt.Color(204, 204, 255));
@@ -238,20 +223,17 @@ public class VistaPlatos extends javax.swing.JFrame {
         lblcodigo1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblcodigo1.setText("CODIGO");
         jPanel2.add(lblcodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-=======
-        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 30));
 
-        btnLimpiar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnLimpiar1.setForeground(new java.awt.Color(0, 153, 255));
-        btnLimpiar1.setText("Limpiar");
-        btnLimpiar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(0, 153, 255));
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar1ActionPerformed(evt);
+                btnNuevoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, 30));
->>>>>>> 5ff657bc82be75357b79bdf88f45c9bbac115c50
+        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 370));
 
@@ -261,7 +243,7 @@ public class VistaPlatos extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         //Activo/Inactivo
-        int confir=-1;
+        int confir = -1;
 
         if (!"".equals(txtcodigo.getText()) && !"".equals(txtnombre.getText()) && !"".equals(txtCosto.getText()) && !"".equals(txtVenta.getText())) {
             int pos = -1;
@@ -352,20 +334,11 @@ public class VistaPlatos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtVentaFocusLost
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
-        int num;
-        Plato v = new Plato();
-        num = v.nuevo_plato();
-        txtcodigo.setText(String.valueOf(num));
-        txtcodigo.setEditable(false);
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         limpiar();
         txtcodigo.setEditable(true);
-    }//GEN-LAST:event_btnLimpiar1ActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
@@ -424,6 +397,15 @@ public class VistaPlatos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCosultarActionPerformed
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        int num;
+        Plato v = new Plato();
+        num = v.nuevo_plato();
+        txtcodigo.setText(String.valueOf(num));
+        txtcodigo.setEditable(false);
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
     public void colocar() {
         obj.setCodigo(Integer.parseInt(txtcodigo.getText()));
         obj.setNombre(txtnombre.getText());
@@ -458,6 +440,10 @@ public class VistaPlatos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VistaPlatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -497,13 +483,8 @@ public class VistaPlatos extends javax.swing.JFrame {
     private javax.swing.JButton btnCosultar;
     private javax.swing.JButton btnEstado;
     private javax.swing.JButton btnGuardar;
-<<<<<<< HEAD
     private javax.swing.JButton btnLimpiar;
-=======
-    private javax.swing.JButton btnInhabilitar;
-    private javax.swing.JButton btnLimpiar1;
     private javax.swing.JButton btnNuevo;
->>>>>>> 5ff657bc82be75357b79bdf88f45c9bbac115c50
     private javax.swing.JButton btnSalir;
     private javax.swing.ButtonGroup grupoRbtn;
     private javax.swing.JDesktopPane jDesktopPane1;
