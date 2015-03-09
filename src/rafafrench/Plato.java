@@ -15,7 +15,7 @@ public final class Plato {
     private int val_venta;
     private String estado;
 
-    Conexion obj = new Conexion("mysql", "com.mysql.jdbc.Driver", "localhost", "rafafrench", "root", "1234");
+    Conexion obj = new Conexion("mysql", "com.mysql.jdbc.Driver", "localhost", "rafafrench", "root", "");
 
     private static ArrayList<Plato> platos = new ArrayList<>();
 
@@ -114,29 +114,40 @@ public final class Plato {
         return p;
     }
 
+    //Metodo nuevo plato
+    public int nuevo_plato() {
+        int num = 0;
+        for (int i = 0; i < platos.size(); i++) {
+            if ((platos.get(i).codigo) > num) {
+                num = platos.get(i).codigo;
+            }
+        }
+        return 1 + num;
+    }
+
     //-------------------------------Metodos actualizar
     public boolean actualizar(int pos) {
         boolean resul = false;
-        
-         
+
         platos.get(pos).nombre = this.nombre;
         platos.get(pos).val_costo = this.val_costo;
         platos.get(pos).val_venta = this.val_venta;
         platos.get(pos).estado = this.estado;
         System.out.println(this.estado);
-   
-        /**Campos que deben ir al llamar al metodo update
-        * tabla, campos, condicion, valores[]
-        */
+
+        /**
+         * Campos que deben ir al llamar al metodo update tabla, campos,
+         * condicion, valores[]
+         */
         String campos = "nombre_plato, costo, valor_venta, estado";
         Object[] valores = {this.nombre, this.val_costo, this.val_venta, this.estado};
-        try{
-            if (obj.update("platos", campos, "codigo ="+this.codigo, valores)) {
+        try {
+            if (obj.update("platos", campos, "codigo =" + this.codigo, valores)) {
                 resul = true;
             }
-            
-        } catch(Exception ex){
-            System.out.println("Error al llamar al metodo upd \n"+ ex.getMessage());
+
+        } catch (Exception ex) {
+            System.out.println("Error al llamar al metodo upd \n" + ex.getMessage());
         }
 
         return resul;
