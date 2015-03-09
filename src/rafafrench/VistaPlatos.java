@@ -1,9 +1,11 @@
 package rafafrench;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /*
@@ -29,7 +31,13 @@ public class VistaPlatos extends javax.swing.JFrame {
         java.util.Date fecha = new java.util.Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         txtFecha.setText(sdf.format(fecha));
+        lblfechaIngreso.setText(sdf.format(fecha));
+        lblfechaIngreso.setForeground(Color.decode("#faf6f5"));
         txtcodigo.requestFocus();
+        //SE ESTABLECE EL ESTADO PREDETERMINADO
+        txtestado.setHorizontalAlignment(JTextField.CENTER);
+        txtestado.setText("Activo");
+        txtestado.setForeground(Color.decode("#10ba20"));
 
     }
 
@@ -44,15 +52,13 @@ public class VistaPlatos extends javax.swing.JFrame {
 
         grupoRbtn = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        rbtInactivo = new javax.swing.JRadioButton();
-        rbtActivo = new javax.swing.JRadioButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        lblfechaIngreso = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnCosultar = new javax.swing.JButton();
-        btnInhabilitar = new javax.swing.JButton();
+        btnEstado = new javax.swing.JButton();
         lblestado = new javax.swing.JLabel();
         lblventa = new javax.swing.JLabel();
         txtVenta = new javax.swing.JTextField();
@@ -62,29 +68,16 @@ public class VistaPlatos extends javax.swing.JFrame {
         txtFecha = new javax.swing.JFormattedTextField();
         lblnombre = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        lblcodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
+        txtestado = new javax.swing.JTextField();
+        lblcodigo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(230, 234, 234));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        grupoRbtn.add(rbtInactivo);
-        rbtInactivo.setText("INACTIVO");
-        rbtInactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(rbtInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
-
-        grupoRbtn.add(rbtActivo);
-        rbtActivo.setText("ACTIVO");
-        rbtActivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(rbtActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 170, 40));
 
         jLabel1.setFont(new java.awt.Font("Vani", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,6 +97,11 @@ public class VistaPlatos extends javax.swing.JFrame {
         jDesktopPane1.add(btnSalir);
         btnSalir.setBounds(430, 0, 80, 40);
 
+        lblfechaIngreso.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblfechaIngreso.setText("Fecha");
+        jDesktopPane1.add(lblfechaIngreso);
+        lblfechaIngreso.setBounds(10, 10, 120, 18);
+
         jPanel2.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -121,13 +119,23 @@ public class VistaPlatos extends javax.swing.JFrame {
         btnCosultar.setForeground(new java.awt.Color(0, 153, 255));
         btnCosultar.setText("CONSULTAR");
         btnCosultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnCosultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, 30));
+        btnCosultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCosultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCosultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 100, 30));
 
-        btnInhabilitar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInhabilitar.setForeground(new java.awt.Color(0, 153, 255));
-        btnInhabilitar.setText("INHABILITAR");
-        btnInhabilitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(btnInhabilitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, -1, 30));
+        btnEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnEstado.setForeground(new java.awt.Color(0, 153, 255));
+        btnEstado.setText("INHABILITAR");
+        btnEstado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 110, 30));
 
         lblestado.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblestado.setText("ESTADO");
@@ -138,6 +146,7 @@ public class VistaPlatos extends javax.swing.JFrame {
         jPanel2.add(lblventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         txtVenta.setBackground(new java.awt.Color(204, 204, 255));
+        txtVenta.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtVenta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtVentaFocusLost(evt);
@@ -150,6 +159,7 @@ public class VistaPlatos extends javax.swing.JFrame {
         jPanel2.add(lblcosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
         txtCosto.setBackground(new java.awt.Color(204, 204, 255));
+        txtCosto.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jPanel2.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 170, -1));
 
         lblfecha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -165,13 +175,16 @@ public class VistaPlatos extends javax.swing.JFrame {
         jPanel2.add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         txtnombre.setBackground(new java.awt.Color(204, 204, 255));
+        txtnombre.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jPanel2.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
 
-        lblcodigo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblcodigo.setText("CODIGO");
-        jPanel2.add(lblcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
-
         txtcodigo.setBackground(new java.awt.Color(204, 204, 255));
+        txtcodigo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodigoActionPerformed(evt);
+            }
+        });
         txtcodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtcodigoKeyReleased(evt);
@@ -188,7 +201,27 @@ public class VistaPlatos extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, -1, 30));
+        jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, 30));
+
+        txtestado.setEditable(false);
+        txtestado.setBackground(new java.awt.Color(204, 204, 255));
+        txtestado.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        txtestado.setRequestFocusEnabled(false);
+        txtestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtestadoActionPerformed(evt);
+            }
+        });
+        txtestado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtestadoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 170, -1));
+
+        lblcodigo1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblcodigo1.setText("CODIGO");
+        jPanel2.add(lblcodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 370));
 
@@ -198,23 +231,21 @@ public class VistaPlatos extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         //Activo/Inactivo
-        if (rbtActivo.isSelected() == true) {
-            est = "Activo";
-        } else if (rbtInactivo.isSelected() == true) {
-            est = "Inactivo";
-        }
+        int confir=-1;
+
         if (!"".equals(txtcodigo.getText()) && !"".equals(txtnombre.getText()) && !"".equals(txtCosto.getText()) && !"".equals(txtVenta.getText())) {
             int pos = -1;
             pos = obj.existe(Integer.parseInt(txtcodigo.getText()));
             if (pos > -1) {
                 // Existe el codigo
                 colocar();
-                JOptionPane.showConfirmDialog(null, "¿Desea guardar los cambios realizados a este plato?", "Verificacion", JOptionPane.YES_NO_OPTION);
-
-                if (JOptionPane.YES_OPTION == 0) {
+                confir = JOptionPane.showConfirmDialog(null, "¿Desea guardar los cambios realizados a este plato?", "Verificacion", JOptionPane.YES_NO_OPTION);
+                System.out.println(confir);
+                if (confir == JOptionPane.YES_OPTION) {
                     //CONFIRMAMOS SI REALMENTE DESEA MODIFICAR EL REGISTRO
                     if (obj.actualizar(pos)) {
                         JOptionPane.showMessageDialog(null, "Registro actualizado");
+                        limpiar();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo actualizar el registro, por favor intentelo nuevamente");
                     }
@@ -225,12 +256,13 @@ public class VistaPlatos extends javax.swing.JFrame {
 
                 //Verificamos si ya hay un plato con este nombre
                 if (obj.existe(txtnombre.getText())) {
-                    JOptionPane.showMessageDialog(null,"No se puede guardar el plato, el nombre de este ya existe");
+                    JOptionPane.showMessageDialog(null, "No se puede guardar el Plato, nombre existente.");
                     txtnombre.requestFocus();
                 } else {
                     obj = new Plato(Integer.parseInt(txtcodigo.getText()), txtnombre.getText(), txtFecha.getText(), Integer.parseInt(txtCosto.getText()), Integer.parseInt(txtVenta.getText()), "Activo");
                     if (obj.agregar()) {
                         JOptionPane.showMessageDialog(null, "Plato agregado");
+                        limpiar();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo agregar el plato, por favor vuelva a intentarlo");
                     }
@@ -245,17 +277,30 @@ public class VistaPlatos extends javax.swing.JFrame {
     private void txtcodigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyReleased
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Plato p1 = new Plato();
-            try {
-                p1 = obj.consultar(Integer.parseInt(txtcodigo.getText()));
-                if (p1.getCodigo() > 0) {
-                    txtnombre.setText(p1.getNombre());
-                    txtFecha.setText(p1.getFecha());
-                    txtCosto.setText(String.valueOf(p1.getVal_costo()));
-                    txtVenta.setText(String.valueOf(p1.getVal_venta()));
+            if (!"".equals(txtcodigo.getText())) {
+                Plato p1 = new Plato();
+                try {
+                    p1 = obj.consultar(Integer.parseInt(txtcodigo.getText()));
+                    if (p1.getCodigo() > 0) {
+                        txtnombre.setText(p1.getNombre());
+                        txtFecha.setText(p1.getFecha());
+                        txtCosto.setText(String.valueOf(p1.getVal_costo()));
+                        txtVenta.setText(String.valueOf(p1.getVal_venta()));
+                        txtestado.setText(p1.getEstado());
+                        if (txtestado.getText().equals("Activo")) {
+                            txtestado.setForeground(Color.decode("#10ba20"));
+                        } else {
+                            txtestado.setForeground(Color.decode("#a81d07"));
+                        }
+                    } else {
+                        limpiar2();
+                    }
+                } catch (Exception ex) {
+                    System.out.println("Error al consultar \n" + ex.getMessage());
                 }
-            } catch (Exception ex) {
-                System.out.println("Error al consultar \n" + ex.getMessage());
+            } else {
+                System.out.println("entro......");
+                limpiar2();
             }
 
         }
@@ -271,7 +316,7 @@ public class VistaPlatos extends javax.swing.JFrame {
         if (Integer.parseInt(txtCosto.getText()) > Integer.parseInt(txtVenta.getText())) {
             JOptionPane.showMessageDialog(null, "El precio de la venta no puede ser inferior al costo");
             txtVenta.requestFocus();
-        } else if(Integer.parseInt(txtCosto.getText()) == Integer.parseInt(txtVenta.getText())){
+        } else if (Integer.parseInt(txtCosto.getText()) == Integer.parseInt(txtVenta.getText())) {
             JOptionPane.showMessageDialog(null, "El precio de la venta no puede igual al costo");
             txtVenta.requestFocus();
         }
@@ -282,13 +327,70 @@ public class VistaPlatos extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodigoActionPerformed
+
+    private void txtestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtestadoActionPerformed
+
+    private void txtestadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtestadoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtestadoKeyReleased
+
+    private void btnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoActionPerformed
+        // TODO add your handling code here:
+        if (txtestado.getText().equals("Activo")) {
+            txtestado.setText("Inactivo");
+            txtestado.setForeground(Color.decode("#a81d07"));
+            btnEstado.setText("Habilitar");
+            btnEstado.setSize(110, 30);
+        } else if (txtestado.getText().equals("Inactivo")) {
+            txtestado.setText("Activo");
+            txtestado.setForeground(Color.decode("#10ba20"));
+            btnEstado.setText("Inhabilitar");
+        }
+    }//GEN-LAST:event_btnEstadoActionPerformed
+
+    private void btnCosultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCosultarActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(txtcodigo.getText())) {
+            Plato p1 = new Plato();
+            try {
+                p1 = obj.consultar(Integer.parseInt(txtcodigo.getText()));
+                if (p1.getCodigo() > 0) {
+                    txtnombre.setText(p1.getNombre());
+                    txtFecha.setText(p1.getFecha());
+                    txtCosto.setText(String.valueOf(p1.getVal_costo()));
+                    txtVenta.setText(String.valueOf(p1.getVal_venta()));
+                    txtestado.setText(p1.getEstado());
+                    if (txtestado.getText().equals("Activo")) {
+                        txtestado.setForeground(Color.decode("#10ba20"));
+                    } else {
+                        txtestado.setForeground(Color.decode("#a81d07"));
+                    }
+                } else {
+                    limpiar2();
+                }
+            } catch (Exception ex) {
+                System.out.println("Error al consultar \n" + ex.getMessage());
+            }
+        } else {
+            System.out.println("entro......");
+            limpiar2();
+        }
+
+
+    }//GEN-LAST:event_btnCosultarActionPerformed
+
     public void colocar() {
         obj.setCodigo(Integer.parseInt(txtcodigo.getText()));
         obj.setNombre(txtnombre.getText());
         obj.setFecha(txtFecha.getText());
         obj.setVal_costo(Integer.parseInt(txtCosto.getText()));
         obj.setVal_venta(Integer.parseInt(txtVenta.getText()));
-        obj.setEstado(est);
+        obj.setEstado(txtestado.getText());
     }
 
     /**
@@ -330,47 +432,49 @@ public class VistaPlatos extends javax.swing.JFrame {
     }
 
     public void limpiar() {
-        
+
         txtcodigo.setText(null);
         txtnombre.setText(null);
         txtCosto.setText(null);
         txtVenta.setText(null);
-        grupoRbtn.clearSelection();
+        txtestado.setText("Activo");
+        txtestado.setForeground(Color.decode("#10ba20"));
         txtcodigo.requestFocus();
     }
 
     public void limpiar2() {
         txtcodigo.requestFocus();
-        txtnombre.setText("");
-        txtCosto.setText("");
-        txtVenta.setText("");
-        grupoRbtn.clearSelection();
+        txtnombre.setText(null);
+        txtCosto.setText(null);
+        txtVenta.setText(null);
+        txtestado.setText("Activo");
+        txtestado.setForeground(Color.decode("#10ba20"));
+
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCosultar;
+    private javax.swing.JButton btnEstado;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnInhabilitar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnSalir;
     private javax.swing.ButtonGroup grupoRbtn;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblcodigo;
+    private javax.swing.JLabel lblcodigo1;
     private javax.swing.JLabel lblcosto;
     private javax.swing.JLabel lblestado;
     private javax.swing.JLabel lblfecha;
+    private javax.swing.JLabel lblfechaIngreso;
     private javax.swing.JLabel lblnombre;
     private javax.swing.JLabel lblventa;
-    private javax.swing.JRadioButton rbtActivo;
-    private javax.swing.JRadioButton rbtInactivo;
     private javax.swing.JTextField txtCosto;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JTextField txtVenta;
     private javax.swing.JTextField txtcodigo;
+    private javax.swing.JTextField txtestado;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }

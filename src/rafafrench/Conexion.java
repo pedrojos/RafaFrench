@@ -142,7 +142,6 @@ public class Conexion {
             System.out.println("Error al ejecutar sentencia update \n" + ex);
         }
 
-        System.out.println(sentencia);
         desconectar();
         return resultado;
     } //FIN DE METODO UPD

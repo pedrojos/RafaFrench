@@ -188,7 +188,7 @@ public final class Plato {
         return val_venta;
     }
 
-    public String isEstado() {
+    public String getEstado() {
         return estado;
     }
 
