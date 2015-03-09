@@ -14,7 +14,7 @@ public final class Plato {
     private int val_costo;
     private int val_venta;
     private String estado;
-
+ 
     Conexion obj = new Conexion("mysql", "com.mysql.jdbc.Driver", "localhost", "rafafrench", "root", "1234");
 
     private static ArrayList<Plato> platos = new ArrayList<>();
