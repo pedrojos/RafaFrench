@@ -14,7 +14,7 @@ public final class Plato {
     private int val_costo;
     private int val_venta;
     private String estado;
- 
+
     Conexion obj = new Conexion("mysql", "com.mysql.jdbc.Driver", "localhost", "rafafrench", "root", "1234");
 
     private static ArrayList<Plato> platos = new ArrayList<>();
@@ -102,6 +102,7 @@ public final class Plato {
     }
     //metodos sobrecargados
 
+    //metodos sobrecargados para consultar
     public Plato consultar(int cod) {
         Plato p = new Plato();
         for (int i = 0; i < platos.size(); i++) {
@@ -113,6 +114,19 @@ public final class Plato {
 
         return p;
     }
+
+    public Plato consultar(String nom) {
+        Plato pla = new Plato();
+        for (int i = 0; i < platos.size(); i++) {
+            if (platos.get(i).nombre.equals(nom)) {
+                pla = platos.get(i);
+                break;
+            }
+        }
+
+        return pla;
+    }
+        //metodos sobrecargados para consultar
 
     //Metodo nuevo plato
     public int nuevo_plato() {
